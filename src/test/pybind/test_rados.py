@@ -341,7 +341,6 @@ class TestIoctx(object):
         payload = "bar\000frob"
         self.ioctx.write("foo", payload)
 
-        from nose.tools import set_trace; set_trace()
         # find acting_set for 'foo' and take it down; issue read; verify
         # read doesn't complete until OSDs are back up
         cmd = {

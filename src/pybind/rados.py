@@ -937,34 +937,26 @@ class Completion(object):
         Wait for an asynchronous operation to be marked safe
 
         This does not imply that the safe callback has finished.
-
-        :returns: whether the operation is safe
         """
-        return run_in_thread(self.ioctx.librados.rados_aio_wait_for_safe,
-                             (self.rados_comp,))
+        run_in_thread(self.ioctx.librados.rados_aio_wait_for_safe,
+                      (self.rados_comp,))
 
     def wait_for_complete(self):
         """
         Wait for an asynchronous operation to complete
 
         This does not imply that the complete callback has finished.
-
-        :returns:  whether the operation is completed
         """
-        return run_in_thread(self.ioctx.librados.rados_aio_wait_for_complete,
-                             (self.rados_comp,))
+        run_in_thread(self.ioctx.librados.rados_aio_wait_for_complete,
+                      (self.rados_comp,))
 
     def wait_for_safe_and_cb(self):
         """
         Wait for an asynchronous operation to be marked safe and for
         the safe callback to have returned
-
-        :returns: whether the operation is safe
         """
-        return run_in_thread(
-            self.ioctx.librados.rados_aio_wait_for_safe_and_cb,
-            (self.rados_comp,)
-        )
+        run_in_thread(self.ioctx.librados.rados_aio_wait_for_safe_and_cb,
+                      (self.rados_comp,))
 
     def wait_for_complete_and_cb(self):
         """
